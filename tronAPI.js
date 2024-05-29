@@ -9,7 +9,9 @@ const testAPIKey = '0a8a4cea-76b6-4abc-8360-003d26707591'
 
 async function getContractEvents() {
     try {
-        const url = `https://nile.trongrid.io/v1/accounts/${targetAddress}/transactions/trc20?order_by=block_timestamp%2Cdesc&min_timestamp=${startTime}&max_timestamp=${endTime}&contract_address=${contractAddress}&only_to=true`
+        const prefix = "https://api.trongrid.io"
+        // https://nile.trongrid.io
+        const url = `${prefix}/v1/accounts/${targetAddress}/transactions/trc20?order_by=block_timestamp%2Cdesc&min_timestamp=${startTime}&max_timestamp=${endTime}&contract_address=${contractAddress}&only_to=true`
         const response = await axios.get(url, {
             headers: {
                 'TRON-PRO-API-KEY': TRONGRID_API_KEY
